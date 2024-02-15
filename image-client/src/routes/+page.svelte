@@ -50,6 +50,32 @@
             console.error("Ошибка при отправке файла: ", error);
         }
     }
+
+    const translateResult = (label: string) => {
+        if (label === "welding_line") {
+            return "Линия сварки";
+        } else if (label === "punching_hole") {
+            return "Пробивка";
+        } else if (label === "oil_spot") {
+            return "Масляное пятно";
+        } else if (label === "waist folding") {
+            return "Поясная складка";
+        } else if (label === "crease") {
+            return "Складка";
+        } else if (label === "crescent_gap") {
+            return "Серповидный зазор";
+        } else if (label === "rolled_pit") {
+            return "Прокатная ямка";
+        } else if (label === "water_spot") {
+            return "Водяное пятно";
+        } else if (label === "inclusion") {
+            return "Неметаллическое включение";
+        } else if (label === "silk_spot") {
+            return "Шелковое пятно";
+        } else {
+            return "";
+        }
+    }
 </script>
 
 <div class="container">
@@ -85,10 +111,9 @@
             {#if result}
                 <p class="result-header">Результат распознавания дефектов:</p>
                 {#each result as item, i}
-                    <p class="item" transition:fade>{item.name} ({item.label}) {item.score.toFixed(3)}</p>
+                    <p class="item" transition:fade>{translateResult(item.key)} ({item.key}) {item.value.toFixed(3)}</p>
                 {/each}
             {/if}
-            <p>Скорее всего, на изображении деффект {result[0].name.toLower()}</p>
         </div>
 
         <p class="error">{errorText}</p>
@@ -146,7 +171,7 @@
 
     .result {
         text-align: center;
-        height: 6rem;
+        height: 19rem;
     }
 
     .item {

@@ -17,8 +17,8 @@
         "Version": 1,
         "Type": "Trial",
         "TrainerName": "ImageClassificationMulti",
-        "Score": 0.925,
-        "RuntimeInSeconds": 238.632,
+        "Score": 0.83122362869198307,
+        "RuntimeInSeconds": 528.27,
         "Parameter": {
           "_SCHEMA_": "e0 * e1 * e2",
           "e0": {
@@ -48,7 +48,7 @@
     },
     "Schema": "e0 * e1 * e2",
     "MetricName": "MicroAccuracy",
-    "ModelFilePath": "C:\\Users\\SHAMSI\\Desktop\\Projects\\SweetLessons\\ImageClassification\\MachineLearningApp\\MachineLearningModel.mlnet"
+    "ModelFilePath": "C:\\Users\\SHAMSI\\Desktop\\Projects\\SweetLessons\\ImageClassification\\ImageAPI\\MachineLearningModel.mlnet"
   },
   "Type": "TrainingConfig",
   "Version": 4,

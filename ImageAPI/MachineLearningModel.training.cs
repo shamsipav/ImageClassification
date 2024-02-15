@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using Microsoft.ML.Data;
 using Microsoft.ML.Vision;
 using Microsoft.ML;
+
+namespace ImageAPI
+{
     public partial class MachineLearningModel
     {
 
@@ -73,4 +76,4 @@ using Microsoft.ML;
             return pipeline;
         }
     }
- 
+ }

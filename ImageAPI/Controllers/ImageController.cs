@@ -1,5 +1,4 @@
-﻿using ImageAPI.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.ML;
 
 namespace ImageAPI.Controllers
@@ -41,19 +40,10 @@ namespace ImageAPI.Controllers
             // Получение результатов прогнозирования от модели
             var predictResult = _predictionEngine.Predict(input);
 
-            // Получение списка возможных предсказаний
-            var predictInfoList = PredictInfo.GetPredicts();
+            // Получение коллекции (точность - наименование)
+            var scoresWithLabels = MachineLearningModel.GetSortedScoresWithLabels(predictResult);
 
-            // Обновление результатов предсказаний согласно полученным значениям
-            for (int i = 0; i < predictResult.Score.Length; i++)
-            {
-                var label = predictInfoList.FirstOrDefault(x => x.Id == i);
-
-                if (label != null) label.Score = predictResult.Score[i];
-            }
-
-            // Возврат отсортированного списка предсказаний с учетом Score
-            return Ok(predictInfoList.OrderByDescending(x => x.Score).ToList());
+            return Ok(scoresWithLabels);
         }
     }
 }

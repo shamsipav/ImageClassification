@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ImageAPI;
 
 // Configure app
 var builder = WebApplication.CreateBuilder(args);
