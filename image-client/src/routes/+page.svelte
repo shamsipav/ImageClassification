@@ -88,6 +88,7 @@
                     <p class="item" transition:fade>{item.name} ({item.label}) {item.score.toFixed(3)}</p>
                 {/each}
             {/if}
+            <p>Скорее всего, на изображении деффект {result[0].name.toLower()}</p>
         </div>
 
         <p class="error">{errorText}</p>
