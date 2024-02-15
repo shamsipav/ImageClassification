@@ -26,6 +26,13 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
+app.UseCors(builder => builder
+    .WithOrigins("http://0.0.0.0:5445")
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .AllowCredentials()
+    .SetIsOriginAllowed(origin => true));
+
 app.UseSwagger();
 
 app.UseSwaggerUI(c =>

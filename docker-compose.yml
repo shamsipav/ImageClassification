@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:     
+  api:
+    container_name: image-api
+    hostname: api
+    build: ./ImageAPI
+    ports:
+      - "0.0.0.0:5444:5444"
+
+  frontend:
+    build: ./image-client
+    ports:
+      - 54445:5445
+    depends_on:
+      - api

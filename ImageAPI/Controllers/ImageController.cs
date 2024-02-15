@@ -16,8 +16,12 @@ namespace ImageAPI.Controllers
         }
 
         [HttpPost("predict")]
-        public IActionResult Index(IFormFile file)
+        public async Task<IActionResult> Index()
         {
+            var formCollection = await Request.ReadFormAsync();
+
+            var file = formCollection?.Files?.First();
+
             if (file == null)
                 return BadRequest("Необходимо выбрать файл для анализа");
 
