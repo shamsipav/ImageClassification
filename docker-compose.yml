@@ -11,6 +11,6 @@ services:
   frontend:
     build: ./image-client
     ports:
-      - 54445:5445
+      - 5445:5445
     depends_on:
       - api
