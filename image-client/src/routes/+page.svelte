@@ -111,7 +111,7 @@
             {#if result}
                 <p class="result-header">Результат распознавания дефектов:</p>
                 {#each result as item, i}
-                    <p class="item" transition:fade>{translateResult(item.key)} ({item.key}) {item.value.toFixed(3)}</p>
+                    <p class="item {i == 0 ? 'predict' : ''}" transition:fade>{translateResult(item.key)} ({item.key}) {item.value.toFixed(3)}</p>
                 {/each}
             {/if}
         </div>
@@ -188,5 +188,11 @@
         font-weight: 300;
         font-size: 1.1rem;
         color: rgba(231, 61, 61, 0.671);
+    }
+
+    .predict {
+        color: blueviolet;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
     }
 </style>
