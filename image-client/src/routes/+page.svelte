@@ -29,7 +29,7 @@
         formData.append("file", files[0]);
         
         try {
-            const response = await fetch('http://93.88.178.186:5444/api/image/predict', {
+            const response = await fetch('http://localhost:5444/api/image/predict', {
                 method: 'POST',
                 body: formData
             });
